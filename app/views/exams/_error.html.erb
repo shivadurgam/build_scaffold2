@@ -1,0 +1,26 @@
+
+<% if @exam.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@exam.errors.count, "error") %> prohibited this post from being saved:</h2>
+ 
+    <ol>
+    <% @exam.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ol>
+    
+  </div>
+  
+<% end %>
+
+
+
+
+<%= form_for @exam do |f| %>
+	<%= f.label :name %></br>
+	<%= f.text_field :name %></br></br>
+	<%= f.label :marks %></br>
+	<%= f.text_field :marks %></br>
+	<%= f.submit  %>
+
+<% end %>

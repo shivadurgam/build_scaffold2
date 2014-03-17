@@ -1,0 +1,29 @@
+
+<h1>Exam Results:</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Student Name |</th>
+			<th>| Marks secured</th>
+			<th></th>
+			<th></th>
+			<th></th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<% @exam.each do |f| %>
+			<tr>
+				<td><%= f.name %></td>
+				<td><%= f.marks %></td>
+				<td><%= link_to 'Show', f %></td>
+				<td><%= link_to 'Edit', edit_exam_path(f) %></td>
+				<td><%= link_to 'Destroy', f , method: :delete, data: { confirm: 'Do You really want to delete this entry?' } %></td>
+				
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'New Student', new_exam_path %>
+
