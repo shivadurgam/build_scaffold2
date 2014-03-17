@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-	
+	before_filter :authenticate_user!
 	before_action :set_exam, only: [:show, :edit, :update, :destroy]
 
 	def home
@@ -28,8 +28,11 @@ class ExamsController < ApplicationController
 	end
 
 	def update
-		@exam.update_attributes(exam_params)
+		if @exam.update_attributes(exam_params)
 		redirect_to exams_path
+		else 
+		render 'edit'
+		end
 		
 	end
 

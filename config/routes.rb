@@ -1,6 +1,7 @@
 BuildScaffold2::Application.routes.draw do
 
 
+  devise_for :users
 #resources :exams
   get '/exams' => "exams#home", as: 'exams'
   post '/exams' => "exams#create"
@@ -10,6 +11,8 @@ BuildScaffold2::Application.routes.draw do
   patch '/exams/:id' => "exams#update"
   put '/exams/:id' => "exams#update"
   delete '/exams/:id' => "exams#destroy"
+
+  root :to => "exams#home"
 
     
  
